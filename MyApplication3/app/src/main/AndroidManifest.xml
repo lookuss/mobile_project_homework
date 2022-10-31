@@ -26,8 +26,10 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".product_page_list"
-            android:label="product_page_list" />
+            android:name=".register"
+            />
+        <activity android:name=".product_page_list"
+            />
     </application>
 
 </manifest>

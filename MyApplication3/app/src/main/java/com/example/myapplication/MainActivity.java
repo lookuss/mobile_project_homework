@@ -51,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        register.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), com.example.myapplication.register.class);
+            startActivity(intent);
+        });
         pass_button.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), product_page_list.class);
             startActivity(intent);
