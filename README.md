@@ -39,3 +39,5 @@
 - androidx.test.espresso:espresso-core 3.4.0
 - androidx.room:room-compiler 2.4.3
 
+
+p.s 간혹 오류 발생시 Clean Project를 누르면 정상 작동 합니다.
