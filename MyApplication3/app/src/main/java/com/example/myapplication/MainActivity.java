@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        login_user_data user_data = (login_user_data)getApplicationContext();
 
 
 
@@ -48,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String user_id = String.valueOf(ID.getText());
                 String user_password = String.valueOf(password.getText());
+                String name;
+                String address;
+                String number;
                 int check = 0;
                 id = db.server_d().getAll();
                 for(int i=0;i<id.size();i++){
@@ -55,6 +58,13 @@ public class MainActivity extends AppCompatActivity {
                     if(tmp.equals(user_id)){
                         tmp = id.get(i).getUser_password().toString();
                         if(tmp.equals(user_password)){
+                            name = id.get(i).getUser_name();
+                            address = id.get(i).getUser_address();
+                            number = id.get(i).getUser_phonenum();
+                            user_data.setId(user_id);
+                            user_data.setAddress(address);
+                            user_data.setName(name);
+                            user_data.setNumber(number);
                             check =1;
                         }
                     }
@@ -62,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 if (check == 0){
                     Toast.makeText(getApplicationContext(), "Invalid member information!",Toast.LENGTH_SHORT).show();
                 }else{
+
                     Intent intent = new Intent(getApplicationContext(), product_page_list.class);
                     startActivity(intent);
                 }
@@ -74,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
         pass_button.setOnClickListener(view -> {
+            user_data.setId("");
             Intent intent = new Intent(getApplicationContext(), product_page_list.class);
             startActivity(intent);
         });
